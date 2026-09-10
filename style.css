@@ -65,6 +65,13 @@ h3{font-size:clamp(19px,2vw,23px);line-height:1.25}
 .fine-print{font-size:13px;line-height:1.6;color:var(--muted);margin-top:14px}
 .fine-print-l{color:var(--muted-dark)}
 
+/* tag — small labeled pill for a region or keyword */
+.tag{
+  display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--malachite);border:1px solid var(--malachite);
+  border-radius:2px;padding:6px 12px;margin:0 8px 8px 0;
+}
+
 /* dotlist — unordered list, non-sequential items */
 .dotlist{list-style:none}
 .dotlist li{
