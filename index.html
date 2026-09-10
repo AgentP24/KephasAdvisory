@@ -9,240 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#0B1815;
-  --malachite:#1F5D4C;
-  --malachite-deep:#12352C;
-  --azurite:#1B3A6B;
-  --patina:#7FB3A1;
-  --paper:#F1F3EF;
-  --paper-2:#E4E8E2;
-  --rule:#C6CEC6;
-  --rule-dark:#2E4A42;
-  --flag:#A8452F;
-  --muted:#5C6B65;
-  --muted-dark:#8FA79E;
-
-  --display:"Fraunces",Georgia,serif;
-  --body:"Public Sans",system-ui,-apple-system,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,monospace;
-
-  --pad:clamp(20px,5vw,72px);
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--body);
-  font-size:17px;
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-}
-a{color:inherit}
-
-.wrap{max-width:1140px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
-
-.eyebrow{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  font-weight:500;
-  color:var(--muted);
-}
-.eyebrow-l{color:var(--patina)}
-
-h1,h2,h3{font-family:var(--display);font-variation-settings:"SOFT" 0,"WONK" 0;font-weight:600;letter-spacing:-.02em;line-height:1.05}
-h1{font-size:clamp(38px,6.2vw,72px)}
-h2{font-size:clamp(28px,3.8vw,42px)}
-h3{font-size:clamp(19px,2vw,23px);line-height:1.25}
-
-.lede{font-size:clamp(17px,1.5vw,19px);line-height:1.55;color:var(--muted)}
-.lede-l{color:var(--muted-dark)}
-
-/* ---------- skip link ---------- */
-.skip{
-  position:absolute;left:-9999px;top:0;z-index:100;
-  background:var(--patina);color:var(--ink);font-family:var(--mono);font-size:12px;
-  padding:10px 16px;border-radius:0 0 3px 0;text-decoration:none;
-}
-.skip:focus{left:0}
-
-/* ---------- nav ---------- */
-header.nav{
-  position:sticky;top:0;z-index:60;
-  background:var(--ink);
-  border-bottom:1px solid var(--rule-dark);
-}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
-.mark{display:flex;align-items:baseline;gap:9px;color:var(--paper);text-decoration:none}
-.glyph{height:15px;width:auto;color:var(--patina);align-self:center;margin-right:1px;overflow:visible}
-.mark b{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.015em;white-space:nowrap}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links > a{
-  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--muted-dark);text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;
-}
-.nav-links > a:hover{color:var(--paper);border-bottom-color:var(--patina)}
-.nav-links a.cta-sm{color:var(--ink);background:var(--patina);border:0;padding:8px 14px;border-radius:2px}
-.nav-links a.cta-sm:hover{background:var(--paper)}
-
-/* mobile menu — native <details>, no JavaScript */
-.nav-menu{position:relative;display:none}
-.nav-menu > summary{
-  list-style:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  width:40px;height:34px;border:1px solid var(--rule-dark);border-radius:2px;color:var(--paper);
-}
-.nav-menu > summary::-webkit-details-marker{display:none}
-.nav-menu > summary:hover{border-color:var(--patina);color:var(--patina)}
-.nav-menu > summary svg{width:18px;height:18px;display:block}
-.nav-menu[open] > summary{border-color:var(--patina);color:var(--patina)}
-.nav-panel{
-  position:absolute;right:0;top:calc(100% + 12px);
-  min-width:190px;display:flex;flex-direction:column;padding:6px;
-  background:var(--ink);border:1px solid var(--rule-dark);border-radius:3px;
-  box-shadow:0 14px 34px rgba(0,0,0,.45);
-}
-.nav-panel a{
-  font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--muted-dark);text-decoration:none;padding:12px 12px;border-radius:2px;
-}
-.nav-panel a:hover{color:var(--paper);background:rgba(127,179,161,.10)}
-@media(max-width:820px){
-  .nav-links > a:not(.cta-sm){display:none}
-  .nav-menu{display:block}
-}
-
-/* ---------- hero ---------- */
-.hero{
-  background:
-    radial-gradient(120% 90% at 82% 8%, rgba(27,58,107,.55) 0%, rgba(11,24,21,0) 62%),
-    linear-gradient(178deg, var(--malachite-deep) 0%, var(--ink) 68%);
-  color:var(--paper);
-  padding:clamp(64px,10vw,120px) 0 clamp(64px,9vw,110px);
-  border-bottom:1px solid var(--rule-dark);
-}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:44px}}
-.hero h1{color:var(--paper);margin:20px 0 22px;max-width:15ch}
-.hero h1 em{font-style:normal;color:var(--patina)}
-.hero .lede{max-width:44ch}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.btn{
-  font-family:var(--body);font-size:15px;font-weight:600;
-  padding:14px 24px;border-radius:2px;text-decoration:none;display:inline-block;
-  transition:background .18s ease,color .18s ease,border-color .18s ease;
-}
-.btn-primary{background:var(--patina);color:var(--ink);border:1px solid var(--patina)}
-.btn-primary:hover{background:var(--paper);border-color:var(--paper)}
-.btn-ghost{background:transparent;color:var(--paper);border:1px solid var(--rule-dark)}
-.btn-ghost:hover{border-color:var(--patina);color:var(--patina)}
-
-/* ---------- signature: the record ---------- */
-.record{
-  background:rgba(241,243,239,.035);
-  border:1px solid var(--rule-dark);
-  border-radius:3px;
-  font-family:var(--mono);
-  font-size:13px;
-  overflow:hidden;
-}
-.record-head{
-  display:flex;justify-content:space-between;align-items:center;gap:14px;
-  padding:11px 16px;border-bottom:1px solid var(--rule-dark);
-  background:rgba(0,0,0,.22);
-}
-.record-head .t{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-dark)}
-.row{
-  display:grid;grid-template-columns:118px 1fr;gap:14px;
-  padding:11px 16px;border-bottom:1px solid rgba(46,74,66,.55);
-  opacity:0;transform:translateY(5px);
-  animation:in .5s cubic-bezier(.2,.7,.3,1) forwards;
-}
-.row:last-child{border-bottom:0}
-.row .k{color:var(--muted-dark);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding-top:2px}
-.row .v{color:var(--paper);word-break:break-word}
-.row:nth-child(1){animation-delay:.18s}
-.row:nth-child(2){animation-delay:.32s}
-.row:nth-child(3){animation-delay:.46s}
-.row:nth-child(4){animation-delay:.60s}
-.row:nth-child(5){animation-delay:.74s}
-@keyframes in{to{opacity:1;transform:none}}
-
-.tok{
-  display:inline-block;font-family:var(--mono);font-size:10px;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:2px;border:1px solid;
-}
-.tok-ok{color:var(--patina);border-color:rgba(127,179,161,.5);background:rgba(127,179,161,.09)}
-.tok-flag{color:#E8907B;border-color:rgba(168,69,47,.6);background:rgba(168,69,47,.14)}
-.tok-open{color:var(--muted-dark);border-color:var(--rule-dark)}
-
-/* ---------- sections ---------- */
-section{padding:clamp(60px,8vw,104px) 0}
-.sec-head{max-width:62ch;margin-bottom:clamp(32px,4vw,48px)}
-.sec-head h2{margin:14px 0 16px}
-
-.paper-2{background:var(--paper-2)}
-
-/* what we do */
-.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
-@media(max-width:860px){.split{grid-template-columns:1fr}}
-.split h2{margin:14px 0 18px}
-.split .lede + .lede{margin-top:16px}
-.plain{list-style:none;border-top:1px solid var(--rule)}
-.plain li{border-bottom:1px solid var(--rule);padding:16px 0;display:grid;grid-template-columns:26px 1fr;gap:12px;font-size:16px;line-height:1.5}
-.plain .m{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--malachite);padding-top:3px}
-.plain b{font-weight:600}
-
-/* deliverables */
-.decks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media(max-width:900px){.decks{grid-template-columns:1fr}}
-.deck{
-  background:#fff;border:1px solid var(--rule);border-radius:3px;
-  padding:clamp(22px,2.6vw,30px);
-  display:flex;flex-direction:column;gap:12px;
-  transition:border-color .2s ease,transform .2s ease;
-}
-.deck:hover{border-color:var(--malachite);transform:translateY(-2px)}
-.deck .tier{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.deck p{font-size:15.5px;color:var(--muted);line-height:1.55}
-
-/* how we work strip */
-.strip{background:var(--ink);color:var(--paper)}
-.strip h2{color:var(--paper)}
-.strip .lede{color:var(--muted-dark)}
-.threes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);margin-top:clamp(28px,4vw,44px)}
-@media(max-width:860px){.threes{grid-template-columns:1fr}}
-.three{border-top:2px solid var(--rule-dark);padding-top:18px}
-.three h3{color:var(--paper);margin-bottom:10px}
-.three p{font-size:15.5px;color:var(--muted-dark);line-height:1.55}
-
-/* cta */
-.cta-band{background:var(--malachite-deep);color:var(--paper)}
-.cta-band h2{color:var(--paper);max-width:20ch;margin:14px 0 18px}
-.cta-band p{color:var(--muted-dark);max-width:52ch;font-size:17px}
-
-/* footer */
-footer{background:var(--ink);color:var(--muted-dark);padding:clamp(44px,6vw,64px) 0 36px;font-size:14px}
-.foot-grid{display:flex;justify-content:space-between;gap:clamp(24px,4vw,48px);flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid var(--rule-dark)}
-.foot-grid a{color:var(--muted-dark);text-decoration:none}
-.foot-grid a:hover{color:var(--paper)}
-.foot-contact{font-family:var(--mono);font-size:13px;line-height:2}
-.legal{padding-top:26px;font-size:12.5px;line-height:1.7;color:#6C8A80;max-width:96ch}
-.legal p+p{margin-top:12px}
-.legal mark{background:rgba(168,69,47,.18);color:#E8907B;padding:1px 4px;border-radius:2px}
-
-:focus-visible{outline:2px solid var(--patina);outline-offset:3px}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  .row{opacity:1;transform:none}
-  html{scroll-behavior:auto}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -250,17 +17,26 @@ footer{background:var(--ink);color:var(--muted-dark);padding:clamp(44px,6vw,64px
 
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="mark" href="#top"><svg class="glyph" viewBox="-3.2 -3.2 168.4 86.4" aria-hidden="true"><path d="M 31 80 L 66 0 L 96 0 L 131 80" fill="none" stroke="currentColor" stroke-width="6.4" stroke-linejoin="miter"/><line x1="0" y1="80" x2="162" y2="80" stroke="currentColor" stroke-width="6.4"/><circle cx="81" cy="52" r="7.2" fill="currentColor"/></svg><b>Kephas Advisory</b></a>
+    <a class="mark" href="index.html"><svg class="glyph" viewBox="-3.2 -3.2 168.4 86.4" aria-hidden="true"><path d="M 31 80 L 66 0 L 96 0 L 131 80" fill="none" stroke="currentColor" stroke-width="6.4" stroke-linejoin="miter"/><line x1="0" y1="80" x2="162" y2="80" stroke="currentColor" stroke-width="6.4"/><circle cx="81" cy="52" r="7.2" fill="currentColor"/></svg><b>Kephas Advisory</b></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#work">What we do</a>
-      <a href="#how">How we work</a>
-      <a class="cta-sm" href="#contact">Get in touch</a>
+      <a href="index.html#work">What We Do</a>
+      <a href="sectors.html">Sectors</a>
+      <a href="investors.html">Investors</a>
+      <a href="project-owners.html">Project Owners</a>
+      <a href="insights.html">Insights</a>
+      <a href="about.html">About</a>
+      <a class="cta-sm" href="contact.html">Contact</a>
       <details class="nav-menu">
         <summary aria-label="Open navigation menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></summary>
         <div class="nav-panel">
-          <a href="#work">What we do</a>
-          <a href="#how">How we work</a>
-          <a href="#contact">Get in touch</a>
+          <a href="index.html">Home</a>
+          <a href="index.html#work">What We Do</a>
+          <a href="sectors.html">Sectors</a>
+          <a href="investors.html">Investors</a>
+          <a href="project-owners.html">Project Owners</a>
+          <a href="insights.html">Insights</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
         </div>
       </details>
     </nav>
@@ -271,12 +47,14 @@ footer{background:var(--ink);color:var(--muted-dark);padding:clamp(44px,6vw,64px
 <div class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow eyebrow-l">DRC market entry &middot; asset &amp; counterparty verification</span>
-      <h1>Know what you're buying <em>before you buy it.</em></h1>
-      <p class="lede lede-l">Most deals fail in two places: the title, and the people behind it. We verify both before your capital moves, so you commit on documented fact.</p>
+      <span class="eyebrow eyebrow-l">DRC Market Intelligence &middot; Asset Verification &middot; Transaction Advisory</span>
+      <h1>Where DRC Opportunity Meets Global Capital.</h1>
+      <p class="campaign-line">Know what you're buying before you buy it.</p>
+      <p class="lede lede-l">Kephas Advisory helps international investors, companies, and strategic partners evaluate and navigate opportunities in the Democratic Republic of Congo.</p>
+      <p class="lede lede-l">We combine local intelligence, asset and counterparty verification, regulatory insight, and transaction advisory to help clients make informed decisions before committing capital.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="mailto:pejiba@kephasadvisory.com">Book a scoping call</a>
-        <a class="btn btn-ghost" href="#work">What we do</a>
+        <a class="btn btn-ghost" href="#work">Explore Our Capabilities</a>
+        <a class="btn btn-primary" href="mailto:pejiba@kephasadvisory.com">Speak With Kephas</a>
       </div>
     </div>
 
@@ -294,20 +72,152 @@ footer{background:var(--ink);color:var(--muted-dark);padding:clamp(44px,6vw,64px
   </div>
 </div>
 
-<!-- WHAT WE DO -->
-<section id="work">
+<!-- FROM LOCAL OPPORTUNITY TO INSTITUTIONAL DECISION -->
+<section>
   <div class="wrap split">
     <div>
-      <span class="eyebrow">What we do</span>
-      <h2>We do the work that comes before the deal.</h2>
-      <p class="lede">In the Democratic Republic of Congo, deals are lost to bad information more than anything else. We surface the problem in a title or a counterparty before your capital is committed.</p>
+      <h2>From local opportunity to institutional decision.</h2>
+      <p class="lede">The Democratic Republic of Congo presents significant opportunities across critical minerals, mining, infrastructure, and related supply chains.</p>
+      <p class="lede">But opportunity alone is not enough.</p>
     </div>
-    <ul class="plain">
-      <li><span class="m">01</span><span><b>Verify the title.</b> We pull the permit from the official cadastre, reconstruct the chain of title, and flag any gap, lapse, or competing claim.</span></li>
-      <li><span class="m">02</span><span><b>Screen the counterparty.</b> We trace beneficial ownership to the individual and screen for sanctions and political exposure.</span></li>
-      <li><span class="m">03</span><span><b>Structure the entry.</b> We lay out the lawful routes at your ticket size, what each costs to test, and which to rule out.</span></li>
-      <li><span class="m">04</span><span><b>Put it in writing.</b> Every engagement ends in a document you can take to counsel or your board, with verified claims and sources.</span></li>
-    </ul>
+    <div>
+      <p class="lede" style="margin-bottom:16px">For international capital, the critical questions are often more fundamental:</p>
+      <ul class="dotlist">
+        <li>Who owns the asset?</li>
+        <li>Is the title valid?</li>
+        <li>What exactly is being offered?</li>
+        <li>Who are the counterparties?</li>
+        <li>What regulatory requirements apply?</li>
+        <li>What risks remain unresolved?</li>
+        <li>What would it take to make the opportunity investment-ready?</li>
+      </ul>
+      <p class="lede" style="margin-top:16px">Kephas helps answer those questions before they become expensive problems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="mint" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What We Do</span>
+      <h2>Verify. Assess. De-risk. Structure.</h2>
+    </div>
+    <div class="decks cols-2">
+      <div class="deck">
+        <h3>Verify.</h3>
+        <span class="tier">Asset &amp; Title Verification</span>
+        <p>We help clients establish what an asset actually is before evaluating what it could become.</p>
+        <p>Our work can include:</p>
+        <ul>
+          <li>Mining title and permit review</li>
+          <li>Ownership and chain-of-title analysis</li>
+          <li>Corporate and beneficial ownership screening</li>
+          <li>Counterparty verification</li>
+          <li>Documentation review</li>
+          <li>Regulatory status assessment</li>
+          <li>Identification of inconsistencies and information gaps</li>
+        </ul>
+        <p><b>The objective:</b> establish a reliable factual foundation for further diligence.</p>
+      </div>
+      <div class="deck">
+        <h3>Assess.</h3>
+        <span class="tier">Market &amp; Investment Intelligence</span>
+        <p>A project can possess valuable mineralization and still be commercially unsuitable.</p>
+        <p>We assess the factors that influence whether an opportunity merits deeper consideration, including:</p>
+        <ul>
+          <li>Mineral and commodity exposure</li>
+          <li>Project stage</li>
+          <li>Infrastructure</li>
+          <li>Logistics</li>
+          <li>Regulatory environment</li>
+          <li>Local operating considerations</li>
+          <li>Counterparty quality</li>
+          <li>Capital requirements</li>
+          <li>Potential transaction structures</li>
+          <li>Key diligence gaps</li>
+        </ul>
+        <p><b>The objective:</b> distinguish an interesting opportunity from an actionable one.</p>
+      </div>
+      <div class="deck">
+        <h3>De-risk.</h3>
+        <span class="tier">Investment Readiness</span>
+        <p>Kephas helps identify what needs to be resolved before an opportunity can be presented to sophisticated capital.</p>
+        <p>We organize the information necessary for investors, strategic partners, counsel, and decision-makers to conduct meaningful diligence.</p>
+        <p>Where gaps exist, we help define the work required to close them.</p>
+        <p><b>The objective:</b> move from fragmented information to an investment-ready process.</p>
+      </div>
+      <div class="deck">
+        <h3>Structure.</h3>
+        <span class="tier">Transaction Advisory</span>
+        <p>Different assets require different paths to commercialization.</p>
+        <p>Kephas helps clients evaluate potential routes including:</p>
+        <ul>
+          <li>Strategic partnerships</li>
+          <li>Joint ventures</li>
+          <li>Project-level investment</li>
+          <li>Acquisition structures</li>
+          <li>Farm-ins and earn-ins</li>
+          <li>Offtake relationships</li>
+          <li>Development partnerships</li>
+          <li>Capital introductions</li>
+          <li>Other appropriate commercial structures</li>
+        </ul>
+        <p>Our role is to help clients understand the transaction landscape and prepare for informed engagement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALIZED ADVISORY: PR -> PE READINESS -->
+<section>
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Specialized Advisory</span>
+      <h2>PR &rarr; PE Readiness</h2>
+      <p class="lede">For holders of exploration-stage mining rights, the path from exploration to commercial development can involve significant technical, regulatory, corporate, and capital considerations.</p>
+      <p class="lede" style="margin-top:16px">Kephas can help assess and organize that pathway.</p>
+    </div>
+    <div>
+      <p class="lede" style="margin-bottom:16px">Our work may include:</p>
+      <ul class="plain">
+        <li><span class="m">01</span><span><b>Title &amp; ownership review.</b> Establish the current legal and corporate position.</span></li>
+        <li><span class="m">02</span><span><b>Geological information assessment.</b> Identify the available technical evidence and material gaps.</span></li>
+        <li><span class="m">03</span><span><b>Exploration &amp; development planning.</b> Help define the information necessary to advance the opportunity.</span></li>
+        <li><span class="m">04</span><span><b>Regulatory pathway assessment.</b> Evaluate applicable permitting and development requirements.</span></li>
+        <li><span class="m">05</span><span><b>Investment-readiness preparation.</b> Organize the opportunity for institutional diligence.</span></li>
+        <li><span class="m">06</span><span><b>Strategic partner identification.</b> Determine what type of capital or operating partner may be appropriate.</span></li>
+        <li><span class="m">07</span><span><b>Transaction preparation.</b> Support the process from qualified interest through diligence and commercial negotiation.</span></li>
+      </ul>
+      <p class="lede" style="margin-top:16px"><b>The objective:</b> transform an exploration opportunity into an opportunity that sophisticated capital can evaluate.</p>
+      <p class="fine-print">Kephas does not guarantee regulatory approvals, permit conversions, financing, investment returns, or transaction completion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESPONSIBLE MINERAL SUPPLY CHAINS -->
+<section class="paper-2">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Responsible Mineral Supply Chains</span>
+      <h2>Formalization. Traceability. Responsible Sourcing.</h2>
+      <p class="lede">Artisanal and small-scale mining can represent both significant opportunity and significant diligence complexity.</p>
+    </div>
+    <div>
+      <p class="lede" style="margin-bottom:16px">Kephas evaluates opportunities with attention to:</p>
+      <ul class="dotlist">
+        <li>Legal and regulatory status</li>
+        <li>Responsible sourcing</li>
+        <li>Traceability</li>
+        <li>Supply-chain transparency</li>
+        <li>Counterparty integrity</li>
+        <li>Formalization pathways</li>
+        <li>Community considerations</li>
+        <li>Applicable international standards</li>
+      </ul>
+      <p class="lede" style="margin-top:16px">The objective is not simply to identify mineral supply.</p>
+      <p class="lede" style="margin-top:8px">It is to understand where that supply comes from, who controls it, and whether it can support a credible commercial chain.</p>
+    </div>
   </div>
 </section>
 
@@ -315,48 +225,61 @@ footer{background:var(--ink);color:var(--muted-dark);padding:clamp(44px,6vw,64px
 <section class="strip" id="how">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow eyebrow-l">How we work</span>
-      <h2>Advisors, not brokers.</h2>
-      <p class="lede">We work for a fixed fee, set before we start. We take no percentage of the deal and no position in the asset.</p>
+      <span class="eyebrow eyebrow-l">How We Work</span>
+      <h2>Local intelligence. Institutional process.</h2>
+      <p class="lede">Kephas operates at the intersection of local market knowledge and international transaction standards.</p>
     </div>
     <div class="threes">
       <div class="three">
-        <h3>No stake in the outcome</h3>
-        <p>No fee we earn depends on a permit, an approval, or any government decision.</p>
+        <span class="m">01 &mdash; Origination</span>
+        <p>We identify opportunities, counterparties, and market situations that warrant further evaluation.</p>
       </div>
       <div class="three">
-        <h3>Sourced and dated</h3>
-        <p>We grade every finding by the strength of its source and keep the evidence on file. You act on the record, not on representation.</p>
+        <span class="m">02 &mdash; Verification</span>
+        <p>We test the underlying information. Titles. Ownership. Corporate records. Counterparties. Permits. Documentation.</p>
       </div>
       <div class="three">
-        <h3>Built for compliance review</h3>
-        <p>FCPA and UK Bribery Act aligned, with sanctions and PEP screening on every counterparty.</p>
+        <span class="m">03 &mdash; Assessment</span>
+        <p>We evaluate commercial, regulatory, infrastructure, technical, and transaction considerations.</p>
+      </div>
+      <div class="three">
+        <span class="m">04 &mdash; De-risking</span>
+        <p>We identify what is known, what is unknown, what can be verified, and what requires further diligence.</p>
+      </div>
+      <div class="three">
+        <span class="m">05 &mdash; Structuring</span>
+        <p>We help determine potential commercial pathways and the type of partner or capital required.</p>
+      </div>
+      <div class="three">
+        <span class="m">06 &mdash; Engagement</span>
+        <p>Qualified investors, strategic partners, operators, and other counterparties can be introduced where there is a genuine strategic fit.</p>
+      </div>
+      <div class="three">
+        <span class="m">07 &mdash; Transaction Support</span>
+        <p>We remain involved through the diligence and transaction process within the scope of the engagement.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- START -->
-<section>
+<!-- THE KEPHAS STANDARD -->
+<section class="cta-band">
   <div class="wrap split">
     <div>
-      <span class="eyebrow">Starting is simple</span>
-      <h2>A call, then a memo.</h2>
+      <span class="eyebrow eyebrow-l">The Kephas Standard</span>
+      <h2>Evidence before enthusiasm.</h2>
+      <p class="lede lede-l">Every opportunity begins with questions.</p>
     </div>
     <div>
-      <p class="lede">Start with a short call, no charge. Whether you're weighing a single asset or planning your entry into the DRC, tell us where you are. If we can help, the first engagement is a fixed-fee scoping memo, usually two to four weeks. When the fit is right, we also bring opportunities we've already begun to verify.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-band" id="contact">
-  <div class="wrap">
-    <span class="eyebrow eyebrow-l">Get in touch</span>
-    <h2>Entering the DRC?</h2>
-    <p>Whether it's a single asset or full market entry, tell us what you're looking at. We'll tell you what to verify before you commit.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="mailto:pejiba@kephasadvisory.com">Book a scoping call</a>
+      <ul class="dotlist dotlist-l">
+        <li>What do we know?</li>
+        <li>How do we know it?</li>
+        <li>What can be independently verified?</li>
+        <li>What remains uncertain?</li>
+        <li>What would an institutional investor need to see?</li>
+      </ul>
+      <p class="lede lede-l" style="margin-top:16px">Our approach is designed to separate facts, representations, assumptions, and unresolved questions.</p>
+      <p class="lede lede-l" style="margin-top:8px">That distinction matters.</p>
     </div>
   </div>
 </section>
@@ -364,7 +287,10 @@ footer{background:var(--ink);color:var(--muted-dark);padding:clamp(44px,6vw,64px
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <a class="mark" href="#top"><svg class="glyph" viewBox="-3.2 -3.2 168.4 86.4" aria-hidden="true"><path d="M 31 80 L 66 0 L 96 0 L 131 80" fill="none" stroke="currentColor" stroke-width="6.4" stroke-linejoin="miter"/><line x1="0" y1="80" x2="162" y2="80" stroke="currentColor" stroke-width="6.4"/><circle cx="81" cy="52" r="7.2" fill="currentColor"/></svg><b>Kephas Advisory</b></a>
+      <div>
+        <a class="mark" href="index.html"><svg class="glyph" viewBox="-3.2 -3.2 168.4 86.4" aria-hidden="true"><path d="M 31 80 L 66 0 L 96 0 L 131 80" fill="none" stroke="currentColor" stroke-width="6.4" stroke-linejoin="miter"/><line x1="0" y1="80" x2="162" y2="80" stroke="currentColor" stroke-width="6.4"/><circle cx="81" cy="52" r="7.2" fill="currentColor"/></svg><b>Kephas Advisory</b></a>
+        <p class="eyebrow eyebrow-l" style="margin-top:8px">DRC Market Intelligence &middot; Asset Verification &middot; Transaction Advisory</p>
+      </div>
       <div class="foot-contact">
         Pierrot Ejiba · Principal<br>
         <a href="mailto:pejiba@kephasadvisory.com">pejiba@kephasadvisory.com</a><br>
@@ -372,10 +298,8 @@ footer{background:var(--ink);color:var(--muted-dark);padding:clamp(44px,6vw,64px
       </div>
     </div>
     <div class="legal">
-      <p>Kephas Advisory is a management advisory firm. It is not a law firm, a broker, a broker-dealer, an investment adviser, or a placement agent, and nothing on this site is legal, tax, or investment advice, or an offer or solicitation regarding any security or asset.</p>
-      <p>The dossier extract shown above is illustrative and does not describe any real asset, permit, or party.</p>
-      <p>No client relationship is created by visiting this site or by contacting us. We act as your advisor only under a signed engagement letter. Please do not send confidential information before we have agreed in writing to work together. Unsolicited materials cannot be treated as confidential.</p>
       <p>© <span id="yr">2026</span> Kephas Advisory. All rights reserved.</p>
+      <p>Disclaimer: Kephas Advisory provides strategic, market, diligence, and transaction advisory services. Information provided by or through Kephas should not be interpreted as a guarantee of investment performance, financing, regulatory approval, permit conversion, transaction completion, or asset value. Clients should obtain independent legal, tax, technical, financial, and other professional advice as appropriate.</p>
     </div>
   </div>
 </footer>
