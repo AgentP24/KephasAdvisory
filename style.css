@@ -61,6 +61,17 @@ h3{font-size:clamp(19px,2vw,23px);line-height:1.25}
   margin:2px 0 18px;
 }
 
+/* pull-quote — an emphasized standalone line on a light background */
+.pull-quote{
+  font-family:var(--display);
+  font-style:italic;
+  font-weight:600;
+  font-size:clamp(20px,2.2vw,26px);
+  line-height:1.35;
+  color:var(--malachite);
+  max-width:32ch;
+}
+
 /* fine print — inline compliance notes under a list or section */
 .fine-print{font-size:13px;line-height:1.6;color:var(--muted);margin-top:14px}
 .fine-print-l{color:var(--muted-dark)}
