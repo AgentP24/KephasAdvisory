@@ -211,6 +211,14 @@ section{padding:clamp(60px,8vw,104px) 0}
 .paper-2{background:var(--paper-2)}
 .mint{background:#E3EEE8}
 
+/* panel — a bordered, tinted box framing a block of content */
+.panel{
+  background:#E3EEE8;
+  border:1.5px solid var(--malachite);
+  border-radius:6px;
+  padding:clamp(28px,4vw,48px);
+}
+
 /* two-column text/list layout */
 .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
 @media(max-width:860px){.split{grid-template-columns:1fr}}
