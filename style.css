@@ -95,6 +95,8 @@ h3{font-size:clamp(19px,2vw,23px);line-height:1.25}
 }
 .dotlist-l li{color:var(--muted-dark)}
 .dotlist-l li::before{background:var(--patina)}
+.dotlist a{color:var(--malachite);font-weight:600;text-decoration:underline;text-decoration-color:var(--rule)}
+.dotlist a:hover{text-decoration-color:var(--malachite)}
 
 /* ---------- skip link ---------- */
 .skip{
@@ -217,7 +219,8 @@ header.nav{
 /* ---------- sections ---------- */
 section{padding:clamp(60px,8vw,104px) 0}
 .sec-head{max-width:62ch;margin-bottom:clamp(32px,4vw,48px)}
-.sec-head h2{margin:14px 0 16px}
+.sec-head h1,.sec-head h2{margin:14px 0 16px}
+.sec-head h1{font-size:clamp(28px,3.8vw,42px)}
 
 .paper-2{background:var(--paper-2)}
 .mint{background:#E3EEE8}
@@ -233,7 +236,8 @@ section{padding:clamp(60px,8vw,104px) 0}
 /* two-column text/list layout */
 .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
 @media(max-width:860px){.split{grid-template-columns:1fr}}
-.split h2{margin:14px 0 18px}
+.split h1,.split h2{margin:14px 0 18px}
+.split h1{font-size:clamp(28px,3.8vw,42px)}
 .split .lede + .lede{margin-top:16px}
 .plain{list-style:none;border-top:1px solid var(--rule)}
 .plain li{border-bottom:1px solid var(--rule);padding:16px 0;display:grid;grid-template-columns:26px 1fr;gap:12px;font-size:16px;line-height:1.5}
@@ -281,6 +285,19 @@ section{padding:clamp(60px,8vw,104px) 0}
 .cta-band{background:var(--malachite-deep);color:var(--paper)}
 .cta-band h2{color:var(--paper);max-width:20ch;margin:14px 0 18px}
 .cta-band p{color:var(--muted-dark);max-width:52ch;font-size:17px}
+
+/* breadcrumbs */
+.breadcrumb{background:var(--paper);border-bottom:1px solid var(--rule);padding:14px 0}
+.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap}
+.breadcrumb li{
+  display:flex;align-items:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);
+}
+.breadcrumb li:not(:last-child)::after{content:"/";color:var(--rule);margin:0 8px}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.breadcrumb a:hover{color:var(--malachite)}
+.breadcrumb li[aria-current="page"]{color:var(--ink);font-weight:600}
 
 /* footer */
 footer{background:var(--ink);color:var(--muted-dark);padding:clamp(44px,6vw,64px) 0 36px;font-size:14px}
